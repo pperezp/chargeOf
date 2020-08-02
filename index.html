@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+        <style>
+            body{
+                background-color: black;
+                color: white;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="products">
+            <input type="button" id="generateButton" value="Add Product">
+        </div>
+
+        <script src="js/Util.js"></script>
+        <script src="js/Product.js"></script>
+        <script src="js/Model.js"></script>
+
+        <script>
+            let model = new Model();
+
+            $("#generateButton").click(function(){
+                let product = new Product();
+                let html = product.getHtml();
+
+                $(".products").append(html);
+
+                model.addProduct(product);
+                model.showProducts();
+            });
+            
+        </script>
+    </body>
+</html>
